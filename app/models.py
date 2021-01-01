@@ -14,6 +14,9 @@ class User(Base):
 
     posts = relationship("Post", back_populates="owner", lazy=True)
 
+    def __repr__(self):
+        return f"<User(name='{self.name}', email='{self.email}')>"
+
 
 class Post(Base):
     __tablename__ = "posts"
@@ -24,3 +27,6 @@ class Post(Base):
     description = Column(Text)
 
     owner = relationship("User", back_populates="posts")
+
+    def __repr__(self):
+        return f"<User(name='{self.name}', email='{self.email}')>"

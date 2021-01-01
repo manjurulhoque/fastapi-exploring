@@ -11,7 +11,26 @@ from .database import engine
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+tags_metadata = [
+    {
+        "name": "users",
+        "description": "Operations with users",
+    },
+    {
+        "name": "posts",
+        "description": "Manage items. So _fancy_ they have their own docs.",
+        "externalDocs": {
+            "description": "Items external docs",
+            "url": "https://fastapi.tiangolo.com/",
+        },
+    },
+]
+
+app = FastAPI(
+    title="Blog API",
+    description="Learning fastapi",
+    openapi_tags=tags_metadata,
+)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(os.path.abspath(os.path.join(BASE_DIR, os.pardir)), ".env"))

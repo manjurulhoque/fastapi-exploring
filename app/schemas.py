@@ -26,6 +26,14 @@ class User(UserBase):
         orm_mode = True
 
 
+class UserNameEmail(UserBase):
+    id: int
+    name: str
+
+    class Config:
+        orm_mode = True
+
+
 class UserGet(UserBase):
     name: str
     posts: List[Post] = []
@@ -70,3 +78,20 @@ class PostDelete(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class BaseComment(BaseModel):
+    post_id: int
+    comment: str
+
+    class Config:
+        orm_mode = True
+
+
+class CommentCreate(BaseComment):
+    pass
+
+
+class CommentList(BaseComment):
+    id: int
+    owner: UserNameEmail

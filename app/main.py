@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import RedirectResponse
 
 from . import models
-from .api import user, post
+from .api import user, post, comment
 from .database import engine
 
 models.Base.metadata.create_all(bind=engine)
@@ -53,3 +53,4 @@ def main():
 
 app.include_router(user.router, tags=['users'])
 app.include_router(post.router, tags=['posts'])
+app.include_router(comment.router, tags=['comments'])

@@ -3,20 +3,11 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session, joinedload
 
-from app.database import SessionLocal
+from .base import get_db
 from app.models import Post as PostModel
 from app import schemas
 
 router = APIRouter()
-
-
-# Dependency
-def get_db():
-    try:
-        db = SessionLocal()
-        yield db
-    finally:
-        db.close()
 
 
 @router.get("/posts/", response_model=List[schemas.PostGet])

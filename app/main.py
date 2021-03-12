@@ -28,7 +28,7 @@ tags_metadata = [
 
 app = FastAPI(
     title="Blog API",
-    description="Learning fastapi",
+    description="Learning FastAPI",
     openapi_tags=tags_metadata,
 )
 

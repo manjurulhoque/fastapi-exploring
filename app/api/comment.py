@@ -6,17 +6,9 @@ from sqlalchemy.orm import Session
 
 from app import schemas, crud, models
 from app.api.user import get_current_user
-from app.database import SessionLocal
+from .base import get_db
 
 router = APIRouter()
-
-
-def get_db():
-    try:
-        db = SessionLocal()
-        yield db
-    finally:
-        db.close()
 
 
 @router.post("/comments/", response_model=schemas.CommentCreate)

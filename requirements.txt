@@ -7,6 +7,8 @@ colorama==0.4.3
 contextlib2==0.6.0
 distlib==0.3.0
 distro==1.4.0
+dnspython==2.1.0
+email-validator==1.1.2
 fastapi==0.63.0
 FastAPI-SQLAlchemy==0.2.1
 h11==0.11.0
@@ -17,11 +19,14 @@ ipaddr==2.2.0
 lockfile==0.12.2
 msgpack==0.6.2
 packaging==20.3
+passlib==1.7.4
 pep517==0.8.2
 progress==1.5
 pydantic==1.7.3
+PyJWT==2.0.1
 pyparsing==2.4.6
 python-dotenv==0.15.0
+python-multipart==0.0.5
 pytoml==0.1.21
 PyYAML==5.3.1
 requests==2.22.0

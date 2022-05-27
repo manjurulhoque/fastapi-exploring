@@ -1,4 +1,6 @@
+alembic==1.7.7
 appdirs==1.4.3
+bcrypt==3.2.2
 CacheControl==0.12.6
 certifi==2019.11.28
 chardet==3.0.4

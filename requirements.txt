@@ -11,7 +11,7 @@ distlib==0.3.0
 distro==1.4.0
 dnspython==2.1.0
 email-validator==1.1.2
-fastapi==0.63.0
+fastapi==0.65.2
 FastAPI-SQLAlchemy==0.2.1
 h11==0.11.0
 html5lib==1.0.1

@@ -14,6 +14,14 @@ class Post(BaseModel):
         orm_mode = True
 
 
+class PostUpdate(BaseModel):
+    title: str
+    description: str
+
+    class Config:
+        orm_mode = True
+
+
 class UserBase(BaseModel):
     email: EmailStr = Field(None, example="user@example.com", title="User email")
 
@@ -63,6 +71,7 @@ class PostUser(UserBase):
 
 
 class PostGet(BaseModel):
+    id: int
     owner_id: int
     title: str
     description: str

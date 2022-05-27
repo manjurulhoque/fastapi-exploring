@@ -15,8 +15,8 @@ def get_posts(database: Session = Depends(get_db)):
     """
         Get all posts
     """
-    users = database.query(PostModel).all()
-    return users
+    posts = database.query(PostModel).options(joinedload(PostModel.owner)).all()
+    return posts
 
 
 @router.post("/posts/", response_model=schemas.Post)
@@ -45,7 +45,7 @@ def get_post(id: int, db: Session = Depends(get_db)):
 
 
 @router.put("/posts/{id}/", response_model=schemas.Post)
-def update_post(id: int, post_data: schemas.Post, db: Session = Depends(get_db)):
+def update_post(id: int, post_data: schemas.PostUpdate, db: Session = Depends(get_db)):
     post = db.query(PostModel).filter(PostModel.id == id).first()
     if not post:
         raise HTTPException(status_code=404, detail="Post not found")
